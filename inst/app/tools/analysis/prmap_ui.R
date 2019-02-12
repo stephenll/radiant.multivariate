@@ -130,7 +130,7 @@ output$ui_prmap <- renderUI({
         condition = "input.tabs_prmap == 'Plot'",
         uiOutput("ui_pm_plots"),
         tags$table(
-          tags$td(numericInput("pm_scaling", "Arrow scale:", state_init("pm_scaling", 2), .5, 4, .1, width = "117px")),
+          tags$td(numericInput("pm_scaling", "Attribute scale:", state_init("pm_scaling", 2), .5, 4, .1, width = "117px")),
           tags$td(numericInput("pm_fontsz", "Font size:", state_init("pm_fontsz", 5), 1, 20, 1, width = "117px")),
           width = "100%"
         )
@@ -197,12 +197,12 @@ output$prmap <- renderUI({
     "Please select two or more attribute variables"
   } else {
     brand <- .get_data()[[input$pm_brand]]
-    if (length(unique(brand)) < length(brand)) {
-      "Number of observations and unique IDs for the brand variable do not match.\nPlease choose another brand variable or another dataset.\n\n" %>%
-        suggest_data("retailers")
-    } else {
+    # if (length(unique(brand)) < length(brand)) {
+      # "Number of observations and unique IDs for the brand variable do not match.\nPlease choose another brand variable or another dataset.\n\n" %>%
+        # suggest_data("retailers")
+    # } else {
       "available"
-    }
+    # }
   }
 })
 
